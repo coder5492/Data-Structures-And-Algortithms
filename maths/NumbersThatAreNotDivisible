@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+ int main() {
+	
+	long int test,i,n,list[212];
+	cin>>test;
+	list[0] = 0;
+
+	//after 210(lcm of 2,3,5,7) the values follows a pattern 
+	for(i=1;i<=210;i++)
+	{
+	    list[i] = list[i-1] + ((i%2)&&(i%3)&&(i%5)&&(i%7));
+	}
+	
+	while(test--)
+	{
+	    cin>>n;
+	    long int ans = ((n/210) * list[210] + list[n%210]);
+	    cout<<ans<<"\n";
+	}
+	return 0;
+}
